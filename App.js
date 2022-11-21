@@ -59,7 +59,7 @@ const App: () => Node = () => {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Text style={{color: 'black'}}>GitHub Actions CI CD Testing...</Text>
+        <Text style={{color: 'black'}}>GitHub ...</Text>
       </ScrollView>
     </SafeAreaView>
   );
