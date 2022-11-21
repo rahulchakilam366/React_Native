@@ -1,0 +1,47 @@
+name: Pull request into master dev
+
+on: 
+  pull_request:
+     branches:
+         - "master"
+         - "development"
+         
+         
+  jobs:
+    #first job
+    install-and-test:
+      run-on: ubuntu-latest
+      
+      
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+          
+        - name: Use Node.js 16
+          uses: actions/setup-node@v3
+          with: 
+           node-version: 16
+           cache: "yarn"
+           
+        - name: Install Node modules
+          runs: yarn ci
+         
+         
+           
+    #Second Job
+    build-android:
+        needs: install-and-test
+        uses: ./.github/workflows/android-build.yml
+        with: 
+           enviornment: release
+        secrets: inherit
+        
+        
+    #Thrid Job
+    build-ios:
+      needs: install-and-test
+      uses: ./.github/workflows/ios-build.yml
+      with: 
+         enviornment: release
+      secrets: inherit
+    
