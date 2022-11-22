@@ -19,10 +19,10 @@ jobs:
 
       - name: Install node modules
         run: |
-          yarn install
+          npm install
       - name: Run CI with Lefthook
         run: |
-          yarn lefthook run ci-hook
+          npm lefthook run ci-hook
       - name: Run test
         run: |
-          yarn test-ci
+          npm test-ci
