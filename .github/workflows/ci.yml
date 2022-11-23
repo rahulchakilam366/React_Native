@@ -24,7 +24,7 @@ jobs:
 
   build-android:
     name: install-and-test
-    uses: android-build.yml
+    uses: ./.github/workflows/build_android.yml
     with:
       environment: release
     secrets: inherit
