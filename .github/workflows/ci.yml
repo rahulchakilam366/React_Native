@@ -23,7 +23,8 @@ jobs:
           npm install
 
   build-android:
-    uses: ./.github/workflows/android-build.yml
+    name: install-and-test
+    uses: ./.github/workflows/build_android.yml
     with:
       environment: release
     secrets: inherit
