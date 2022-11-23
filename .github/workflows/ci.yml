@@ -22,6 +22,9 @@ jobs:
         run: |
           npm install
 
+      - name: List all files first
+        run: ls
+
   build-android:
     name: install-and-test
     uses: ./.github/workflows/build_android.yml
