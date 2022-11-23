@@ -1,8 +1,10 @@
+name: 'Android Build'
+
 on:
   workflow_call:
     inputs:
       environment:
-        required: fasle
+        required: true
         type: string
       publish:
         required: false
@@ -18,17 +20,6 @@ jobs:
   build-android:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Use Node.js 16
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: npm
-
-      - name: Install Node modules
-        run: npm install
-
       - name: Cache Gradle Wrapper
         uses: actions/cache@v2
         with:
@@ -44,8 +35,9 @@ jobs:
             ${{ runner.os }}-gradle-caches-
       - name: Make Gradlew Executable
         run: cd android && chmod +x ./gradlew
+
         # Build Command
 
-      - name: Build Android ${{inputs.environment == 'release' && 'Release' || 'Debug'}}
+      - name: Build Android
         run: |
-          cd android && ./gradlew bundle${{inputs.environment == 'release' && 'Release' || 'Debug'}} --no-daemon
+          cd android && ./gradlew bundleRelease --no-daemon
