@@ -21,10 +21,7 @@ jobs:
       - name: Install node modules
         run: |
           npm install
-      
-      - name: Build Android
-        run: |
-          cd android && ./gradlew bundleRelease --no-daemon  # Second Job
+
           
   build-android:
     uses: ./.github/workflows/android-build.yml
