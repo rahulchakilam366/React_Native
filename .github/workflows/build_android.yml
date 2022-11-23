@@ -12,25 +12,14 @@ on:
         description: Publish to Appcenter
     secrets:
       NPM_TOKEN:
-        required: true
+        required: false
       APP_CENTER_TOKEN_ANDROID:
-        required: true
+        required: false
 
 jobs:
   build-android:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Use Node.js 14
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: 'npm'
-
-      - name: Install Node modules
-        run: npm install
-
       - name: Cache Gradle Wrapper
         uses: actions/cache@v2
         with:
