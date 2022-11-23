@@ -22,10 +22,8 @@ jobs:
         run: |
           npm install
 
-          
   build-android:
     uses: ./.github/workflows/android-build.yml
     with:
       environment: release
     secrets: inherit
-
