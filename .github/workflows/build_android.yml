@@ -35,7 +35,6 @@ jobs:
             ${{ runner.os }}-gradle-caches-
       - name: Make Gradlew Executable
         run: cd android && chmod +x ./gradlew
-
         # Build Command
 
       - name: Build Android
