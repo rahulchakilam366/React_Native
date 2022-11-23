@@ -10,6 +10,9 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "base64-js": "^1.5.1",
+    "js-base64": "^3.7.3",
+    "memoize-one": "^6.0.0",
     "react": "18.1.0",
     "react-native": "0.70.6"
   },
