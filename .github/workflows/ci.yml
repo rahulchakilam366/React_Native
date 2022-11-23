@@ -23,7 +23,7 @@ jobs:
           npm install
 
   build-android:
-    name: Call Android build
+    name: install-and-test
     uses: android-build.yml
     with:
       environment: release
