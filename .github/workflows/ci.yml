@@ -22,9 +22,10 @@ jobs:
         run: |
           npm install
 
+  # Second Job
   build-android:
-    name: install-and-test
+    needs: install-and-test
     uses: ./.github/workflows/build_android.yml
     with:
-      environment: release
+      environment: Debug
     secrets: inherit
